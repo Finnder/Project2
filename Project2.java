@@ -30,11 +30,32 @@ public class Project2
       System.out.print("Enter The Clock Speed (In Megahertz) Of Your Graphics Card (GPU): ");
       gpuSpeed = keyboard.nextInt();
       
+      while(gpuSpeed < 800 || gpuSpeed > 2000)
+      {
+         System.out.println("ERROR: Gpu speed must be greater then or equal too 800 OR less then or equal too 2000");
+         System.out.print("Enter The Clock Speed (In Megahertz) Of Your Processor(GPU): ");
+         cpuSpeed = keyboard.nextInt();
+      }
+      
       System.out.print("Enter The Clock Speed (In Megahertz) Of Your Processor(CPU): ");
       cpuSpeed = keyboard.nextInt();
       
+      while(cpuSpeed < 1000 || cpuSpeed > 5500)
+      {
+         System.out.println("ERROR: Cpu speed must be greater then or equal too 1000 OR less then or equal too 5500");
+         System.out.print("Enter The Clock Speed (In Megahertz) Of Your Processor(CPU): ");
+         cpuSpeed = keyboard.nextInt();
+      }
+      
       System.out.print("Enter The Number Of Cores Your Processor(CPU) Has: ");
       amountOfCores = keyboard.nextInt();
+      
+      while(amountOfCores < 0)
+      {
+         System.out.println("ERROR: You must input a number greater then 0");
+         System.out.print("Enter The Number Of Cores Your Processor(CPU) Has: ");
+         amountOfCores = keyboard.nextInt();    
+      }
       
       System.out.println("1. 1280 x 720");
       System.out.println("2. 1920 x 1080");
