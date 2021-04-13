@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /*
 Written By: Finnegan McGuire
-Date: 3/6/2021
+Date: 4/13/2021
 Class: CSC120-N890: Computing Fundementals 1
 Prof: Colson Dunlap
 */
@@ -15,6 +15,7 @@ public class Project2
       Scanner keyboard = new Scanner(System.in);
       int totalComputers;
       
+      // Predefined variables
       double highestPerformanceScore = 0;
       double lowestPerformanceScore = 0;
       boolean firstComputer = true;
@@ -24,6 +25,7 @@ public class Project2
       String resolution3 = "2560 x 1440";
       String resolution4 = "3840 x 2160";
       
+      // How many computers to be processed
       System.out.print("How many computers are being processed? ");
       totalComputers = keyboard.nextInt();
       
@@ -40,9 +42,8 @@ public class Project2
       double performanceScore;
       
       String output;
-      // Getting info on the amount of computers
       
-      // Getting Computer Information From User
+      // Get GPU Mhz from user
       System.out.print("Enter The Clock Speed (In Megahertz) Of Your Graphics Card (GPU): ");
       gpuSpeed = keyboard.nextInt();
       
@@ -53,9 +54,11 @@ public class Project2
          gpuSpeed = keyboard.nextInt();
       }
       
+      // Get CPU MHz from user
       System.out.print("Enter The Clock Speed (In Megahertz) Of Your Processor(CPU): ");
       cpuSpeed = keyboard.nextInt();
       
+      // Error handling for cpu speed
       while(cpuSpeed < 1000 || cpuSpeed > 5500)
       {
          System.out.println("ERROR: Cpu speed must be greater then or equal too 1000 OR less then or equal too 5500");
@@ -63,9 +66,11 @@ public class Project2
          cpuSpeed = keyboard.nextInt();
       }
       
+      // Get Amount Of CPU Cores From User
       System.out.print("Enter The Number Of Cores Your Processor(CPU) Has: ");
       amountOfCores = keyboard.nextInt();
       
+      // Checks if amount of cores is not 1 - 16
       while(amountOfCores < 1 || amountOfCores > 16)
       {
          System.out.println("ERROR: You must input a number from 1 - 16");
@@ -80,6 +85,7 @@ public class Project2
       System.out.print("Please select from the options above: ");
       userResolutionChoice = keyboard.nextInt();
       
+      // If the user didnt use a number 1 - 4 then run this
       while(userResolutionChoice < 1 || userResolutionChoice > 4)
       {
          System.out.println("Please use a number from the list");
@@ -91,8 +97,7 @@ public class Project2
          userResolutionChoice = keyboard.nextInt();
       }
       
-      //Changing Multiplier Depending On The Users Resolutions Choice
-
+      //Changing Multiplier Depending On The Users Resolutions Choice as well as what to display for resolution
       if(userResolutionChoice == 1)
       {
          multiplier = 1;
@@ -117,6 +122,7 @@ public class Project2
       //Performance Score Equation
       performanceScore = ((5 * gpuSpeed) + (amountOfCores * cpuSpeed)) * multiplier;
       
+      // Printing recieved input from the user
       System.out.println(" ");
       System.out.println("GPU Clock Speed: " + gpuSpeed + " MHz");
       System.out.println("CPU Clock Speed: " + cpuSpeed + " MHz");
@@ -146,6 +152,7 @@ public class Project2
          output = "Unable To Play";
       }
       
+      // Detecting the highest performance score
       if(performanceScore > highestPerformanceScore)
       {
          highestPerformanceScore = performanceScore;
@@ -170,6 +177,7 @@ public class Project2
       }
       
       
+      // Displaying performance data (highest and lowest score)
       System.out.printf("The highest performance score was: %.3f\n", highestPerformanceScore);
       System.out.printf("The lowest performance score was: %.3f\n", lowestPerformanceScore);
       
